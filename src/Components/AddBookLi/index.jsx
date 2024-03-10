@@ -1,7 +1,8 @@
-import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, useDisclosure, Input, InputLeftAddon, InputGroup, Stack } from '@chakra-ui/react';
-import React from 'react';
+import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, useDisclosure, Input, InputLeftAddon, InputGroup, Stack, Radio, RadioGroup, Divider, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Box, SliderMark } from '@chakra-ui/react';
+import React, { useState } from 'react';
 import { FaPlus } from "react-icons/fa";
-
+import { FaStar } from "react-icons/fa";
+import BookFormDrawer from '../BookFormDrawer';
 
 
 function AddLi() {
@@ -14,60 +15,7 @@ function AddLi() {
             Add new book <FaPlus className='fill-[#fff]'/>
         </Button>
       </li>
-
-      <Drawer
-      isOpen={isOpen}
-      placement='right'
-      onClose={onClose}
-      finalFocusRef={btnRef}
-      >
-      <DrawerOverlay />
-      <DrawerContent>
-        <DrawerCloseButton />
-        <DrawerHeader>Add a new book</DrawerHeader>
-
-        <DrawerBody>
-
-        <Stack spacing={4}>
-          <InputGroup size='md'>
-            <InputLeftAddon>
-              Title
-            </InputLeftAddon>
-            <Input placeholder='e.g. "Robinson Crusoe"' />
-          </InputGroup>
-
-          <InputGroup size='md'>
-            <InputLeftAddon>
-              Author
-            </InputLeftAddon>
-            <Input placeholder='e.g. "Daniel Defoe"' />
-          </InputGroup>
-
-          <InputGroup size='sm'>
-            <InputLeftAddon>
-              Year
-            </InputLeftAddon>
-            <Input type='number' placeholder='☝🤓☝🤓☝🤓☝🤓' />
-          </InputGroup>
-
-          <InputGroup size='sm'>
-            <InputLeftAddon>
-              Pages
-            </InputLeftAddon>
-            <Input type='number' placeholder='☝🤓☝🤓☝🤓☝🤓' />
-          </InputGroup>
-        </Stack>
-
-        </DrawerBody>
-  
-        <DrawerFooter>
-          <Button variant='outline' mr={3} onClick={onClose}>
-            Cancel
-          </Button>
-          <Button colorScheme='blue'>Save</Button>
-        </DrawerFooter>
-      </DrawerContent>
-      </Drawer>
+      <BookFormDrawer isOpen={isOpen} onClose={onClose}/>
   </>
   );
 }
